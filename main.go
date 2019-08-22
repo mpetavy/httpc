@@ -120,6 +120,6 @@ func run() error {
 func main() {
 	defer common.Cleanup()
 
-	common.New(&common.App{"httpc", "1.0.4", "2017", "simple http tool", "mpetavy", common.APACHE, "https://github.com/mpetavy/httpc", false, nil,nil, nil, run, time.Duration(0)}, []string{"u"})
+	common.New(&common.App{"httpc", "1.0.4", "2017", "simple http tool", "mpetavy", common.APACHE, "https://github.com/mpetavy/httpc", false, nil, nil, run, time.Duration(0)}, []string{"u"})
 	common.Run()
 }
