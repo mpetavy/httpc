@@ -27,6 +27,8 @@ var (
 )
 
 func init() {
+	common.Init("httpc", "1.0.4", "2017", "simple http tool", "mpetavy", common.APACHE, "https://github.com/mpetavy/httpc", false, nil, nil, run, 0)
+
 	url = flag.String("u", "", "URL to JNLP file")
 	filename = flag.String("f", "", "filename")
 	username = flag.String("username", "", "username")
@@ -120,6 +122,5 @@ func run() error {
 func main() {
 	defer common.Cleanup()
 
-	common.New(&common.App{"httpc", "1.0.4", "2017", "simple http tool", "mpetavy", common.APACHE, "https://github.com/mpetavy/httpc", false, nil, nil, run, time.Duration(0)}, []string{"u"})
-	common.Run()
+	common.Run([]string{"u"})
 }
