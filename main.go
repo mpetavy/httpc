@@ -8,14 +8,11 @@ import (
 	"io"
 	"io/ioutil"
 	"net/http"
-	"os"
 	"strings"
 	"time"
 
 	"github.com/mpetavy/common"
 )
-
-const version = "1.0.0"
 
 var (
 	filename *string
@@ -43,7 +40,7 @@ func basicAuth(username, password string) string {
 }
 
 // download loads a remote resource via http(s) and stores it to the given filename
-func download(href string) (*bytes.Buffer, error) {
+func download() (*bytes.Buffer, error) {
 	var b bytes.Buffer
 
 	client := &http.Client{}
@@ -90,7 +87,7 @@ func download(href string) (*bytes.Buffer, error) {
 func run() error {
 	now := time.Now()
 
-	b, err := download(*url)
+	b, err := download()
 
 	if err != nil {
 		return err
@@ -102,7 +99,7 @@ func run() error {
 		fmt.Printf("bytes written: %d\n", b.Len())
 
 		if *filename != "" {
-			err = ioutil.WriteFile(*filename, b.Bytes(), os.ModePerm)
+			err = ioutil.WriteFile(*filename, b.Bytes(), common.FileFileMode)
 			if err != nil {
 				if err != nil {
 					return err
