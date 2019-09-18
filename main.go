@@ -24,7 +24,7 @@ var (
 )
 
 func init() {
-	common.Init("httpc", "1.0.4", "2017", "simple http tool", "mpetavy", common.APACHE, "https://github.com/mpetavy/httpc", false, nil, nil, run, 0)
+	common.Init("1.0.4", "2017", "simple http tool", "mpetavy", common.APACHE, false, nil, nil, run, 0)
 
 	url = flag.String("u", "", "URL to JNLP file")
 	filename = flag.String("f", "", "filename")
