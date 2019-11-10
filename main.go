@@ -99,7 +99,7 @@ func run() error {
 		fmt.Printf("bytes written: %d\n", b.Len())
 
 		if *filename != "" {
-			err = ioutil.WriteFile(*filename, b.Bytes(), common.FileFileMode)
+			err = ioutil.WriteFile(*filename, b.Bytes(), common.DefaultFileMode)
 			if err != nil {
 				if err != nil {
 					return err
