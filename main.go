@@ -26,7 +26,7 @@ var (
 )
 
 func init() {
-	common.Init("1.0.4", "2017", "simple http tool", "mpetavy", common.APACHE, false, nil, nil, run, 0)
+	common.Init("1.0.4", "2017", "simple http tool", "mpetavy", fmt.Sprintf("https://github.com/mpetavy/%s", common.Title()), common.APACHE, false, nil, nil, run, 0)
 
 	url = flag.String("c", "", "connection URL")
 	filename = flag.String("f", "", "filename")
