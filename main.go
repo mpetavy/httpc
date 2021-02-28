@@ -7,8 +7,8 @@ import (
 	"flag"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"net/http"
+	"os"
 	"strings"
 	"time"
 
@@ -112,7 +112,7 @@ func run() error {
 	fmt.Printf("body:\n")
 
 	if *filename != "" {
-		err = ioutil.WriteFile(*filename, b.Bytes(), common.DefaultFileMode)
+		err = os.WriteFile(*filename, b.Bytes(), common.DefaultFileMode)
 		if common.Error(err) {
 			return err
 		}
